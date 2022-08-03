@@ -1,0 +1,48 @@
+<section class="content px-2">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">{{l('Categories')}}</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="bg-light">
+                                    <tr><th>{{ "Name" | localize }}</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let categoryName of records" >
+                                        <td>
+                                            <a class="underline" href="javascript:;" (click)="getCategoryDetails(categoryName)" >
+                                                {{ categoryName }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="isProcessing" class="text-center">
+                                        <p>
+                                            {{l('Processing...')}}
+                                        </p>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>{{l('CategoriesDetails')}}</h4>
+                            </div>
+                            <div class="col-12">
+                                <p>{{joke}}</p>
+                                <p *ngIf="isProcessing">
+                                    {{l('Processing...')}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
